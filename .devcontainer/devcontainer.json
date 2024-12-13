@@ -1,5 +1,5 @@
 {
-	"name": "F# (.NET 5.0)",
+	"name": "F# (.NET 9.0)",
 	"dockerFile": "Dockerfile",
 
 	// Set *default* container specific settings.json values on container create.
