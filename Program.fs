@@ -6,7 +6,7 @@ open AlgorithmPuzzles
 
 [<EntryPoint>]
 let main argv =
-    let result = puzzle2.resolve_part2
-    printfn "Puzzle1 Result: %d" result
+    let result = puzzle3.resolve_part2
+    printfn "Result: %d" result
 
     0 // return an integer exit code

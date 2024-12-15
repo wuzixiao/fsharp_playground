@@ -81,7 +81,7 @@ module puzzle2 =
 
     let resolve_part2 =
         // let filePath = "inputs/day1.txt" 
-        let filePath = "inputs/day2.txt" 
+        let filePath = "inputs/test_day2.txt" 
 
         let input = parseInput filePath
 
