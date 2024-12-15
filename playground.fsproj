@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="puzzles/puzzle1.fs" />
+    <Compile Include="puzzles/puzzle2.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
