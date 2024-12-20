@@ -47,8 +47,6 @@ let ``Test resolve part2`` () =
         |> Array.filter (fun line -> (generatePagePair line) |> hasCommonItems invalidOrders)
         |> Array.map (fun p -> fixPage invalidOrders (p.Split(',')))
 
-    printfn "%A" ret
-
     Assert.Equal(3, ret.Length)
 
 
