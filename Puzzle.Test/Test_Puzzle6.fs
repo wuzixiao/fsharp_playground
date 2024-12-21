@@ -90,8 +90,88 @@ let ``Test move forward`` () =
 let ``Test Move guard`` () =
     let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
     let g = initGuard map
-    let ret = moveGuard map g [| fst g |]
+    let ret = moveGuard map g [| g |]
 
-    let l = ret |> Set.ofArray |> Set.count
+    let l = ret |> Array.map fst |> Set.ofArray |> Set.count
 
     Assert.Equal(41, l)
+
+[<Fact>]
+let ``Test new step`` () =
+    let o = (3, 4)
+    let s = ((3, 3), Right)
+    let ret = newStep o s
+
+    Assert.Equal(((4, 3), Down), ret)
+
+[<Fact>]
+let ``Test new step2`` () =
+    let o = (3, 5)
+    let s = ((3, 3), Right)
+    let ret = newStep o s
+
+    Assert.Equal(((-100, -100), Right), ret)
+
+[<Fact>]
+let ``Test is working obstacle`` () =
+    let o = (6, 3)
+
+    let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
+    let g = initGuard map
+    let steps = moveGuard map g [| g |]
+
+    let ret = isWorkingObstable o steps map g
+
+    Assert.True(ret)
+
+[<Fact>]
+let ``Test is working obstacle2`` () =
+    let o = (7, 6)
+
+    let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
+    let g = initGuard map
+    let steps = moveGuard map g [| g |]
+
+    let ret = isWorkingObstable o steps map g
+
+    Assert.True(ret)
+
+[<Fact>]
+let ``Test is working obstacle4`` () =
+    let o = (3, 4)
+
+    let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
+    let g = initGuard map
+    let steps = moveGuard map g [| g |]
+
+    let ret = isWorkingObstable o steps map g
+
+    Assert.False(ret)
+
+[<Fact>]
+let ``Test is working obstacle3`` () =
+    let o = (7, 5)
+
+    let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
+    let g = initGuard map
+    let steps = moveGuard map g [| g |]
+
+    let ret = isWorkingObstable o steps map g
+
+    Assert.False(ret)
+
+
+[<Fact>]
+let ``Test Move guard part2`` () =
+    let map: lab_map = parseInput "../../../../inputs/test_day6.txt"
+    let g = initGuard map
+    let steps = moveGuard map g [| g |]
+
+    let r =
+        steps
+        |> Array.filter (fun s -> isWorkingObstable (fst s) steps map g)
+        |> Array.map (fun s -> fst s)
+        |> Array.distinct
+        |> Array.length
+
+    Assert.Equal(6, r)

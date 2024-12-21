@@ -8,7 +8,7 @@ open AlgorithmPuzzles
 let main argv =
     let filePath = "./inputs/day6.txt"
 
-    let result = puzzle6.resolve filePath
+    let result = puzzle6.resolve_part2 filePath
 
     printfn "Result: %d" result
 
