@@ -93,7 +93,6 @@ module puzzle7 =
 
         let ret = solve equation.Operands.[0] equation.Operands.[1..] equation.Operation
 
-        printfn "Equation: %A, Result: %d" equation ret
         ret = equation.result
 
 
@@ -119,9 +118,9 @@ module puzzle7 =
         inputs
         |> List.filter (fun input ->
             let equations = generateEquations2 input
-            printfn "input: %A" input
+            // printfn "input: %A" input
             let isValid = equations |> List.exists validEquation
-            printfn "Is valid: %b" isValid
+            // printfn "Is valid: %b" isValid
             isValid)
         |> List.map (fun x -> x.result)
         |> List.sum
