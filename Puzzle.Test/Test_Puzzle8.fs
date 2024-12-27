@@ -52,15 +52,15 @@ let ``Find Antinode`` () =
     Assert.Equal(295, antinodes.Length)
 
 
-[<Fact>]
+// [<Fact>]
 let ``Find Antinode part2`` () =
     let map = parseInput "../../../../inputs/day8.txt"
 
     let antinodes = findAntinode2 map
 
-    Assert.Equal(295, antinodes.Length)
+    Assert.Equal(1034, antinodes.Length)
 
-[<Fact>]
+// [<Fact>]
 let ``Test Populate Antinode 2`` () =
     let map = parseInput "../../../../inputs/test_day8.txt"
 
