@@ -13,16 +13,14 @@ module puzzle9 =
     let populateFileBlock (n: int, digit: int) : string = String.replicate n (string digit)
 
     let populateFileLayout (map: DiskMap) : FileLayout =
-        printfn "%A" map
 
         map
         |> Seq.mapi (fun i c ->
+            let n = int (System.Char.GetNumericValue(c))
             if i % 2 = 0 then
-                let n = int (System.Char.GetNumericValue(c))
-                printfn "%A" (n, i / 2)
                 populateFileBlock (n, i / 2)
             else
-                populateGapBlock (i))
+                populateGapBlock (n))
 
         |> String.concat ""
 
