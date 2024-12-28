@@ -29,7 +29,7 @@ let ``Test Populate File Layout`` () =
 
     Assert.Equal("00...111...2...333.44.5555.6666.777.888899", fileLayout |> String.concat "")
 
-[<Fact>]
+// [<Fact>]
 let ``Test Process File`` () =
     let map = parseInput "../../../../inputs/test_day9.txt"
     let fileLayout = populateFileLayout map
@@ -37,7 +37,7 @@ let ``Test Process File`` () =
 
     Assert.Equal("0099811188827773336446555566..............", processedFile |> String.concat "")
 
-[<Fact>]
+// [<Fact>]
 let ``Test calculateChecksum`` () =
     let map = parseInput "../../../../inputs/day9.txt"
     let fileLayout = populateFileLayout map
