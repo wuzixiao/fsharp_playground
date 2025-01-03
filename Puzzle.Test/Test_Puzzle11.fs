@@ -51,19 +51,27 @@ let ``Test blinkNtimes2`` () =
 
 [<Fact>]
 let ``Test blinkNtime3`` () =
-    let num = ["125"; "17"]
+    let num = "125"
     // let result = blinkNtimes2(6, num)
-    let result = blinkNtimesWithFullCache 6 num
+    let result = blinkNtimes3 6 num
 
-
-    Assert.Equal(22, result.Length)
+    Assert.Equal(7L, result)
     // Assert.Equal("2097446912", result.[0])
     // Assert.Equal("2", result.[3])
     // Assert.Equal("2", result.[-1])
 
 [<Fact>]
-let ``Test blinkNtime4`` () =
-    let nums = parseInput "../../../../inputs/day11.txt"
-    let result = blinkNtimesWithFullCache 75 nums
+let ``Test blinkNtime3List`` () =
+    let nums = ["125";"17"]
+    // let result = blinkNtimes2(6, num)
+    let result = blinkNtimes3List 6 nums
 
-    printfn "%A" result.Length
+    Assert.Equal(22L, result)
+
+
+[<Fact>]
+let ``Test blinkNtime3List With Full Input`` () =
+    let nums = parseInput "../../../../inputs/day11.txt"
+    let result = blinkNtimes3List 75 nums
+
+    Assert.Equal(238317474993392L, result)
